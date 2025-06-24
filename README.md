@@ -26,6 +26,7 @@ This is a GraphQL API for managing products and categories built with Laravel an
    php artisan serve
 8. Usage
    Postman url http://localhost:8000/graphql.
+    (Select GraphQL in Body)
 9. Example Queries
    List all products with their categories:
 
