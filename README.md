@@ -83,22 +83,4 @@ This is a GraphQL API for managing products and categories built with Laravel an
     ```bash
     php artisan test
 
-## Additional Configuration
-
-Add Lighthouse configuration to **config/lighthouse.php** if needed (defaults are usually fine).
-
-## Running the Application
-
-After completing all steps:
-1. Run migrations and seeders: `php artisan migrate --seed`
-2. Start the server: `php artisan serve`
-3. Access GraphQL Playground at `http://localhost:8000/graphql-playground`
-
-This solution provides a complete GraphQL API for product and category management with:
-- All required queries and mutations
-- Proper relationships between models
-- Basic testing
-- Database seeding
-- Clear documentation
-
 The architecture follows Laravel best practices with proper use of Eloquent ORM and Lighthouse directives.
