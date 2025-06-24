@@ -1,0 +1,57 @@
+type Product {
+    id: ID!
+    name: String!
+    description: String!
+    price: Float!
+    category: Category! @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    products: [Product!]! @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Query {
+    products: [Product!]! @all
+    product(id: ID! @eq): Product @find
+    categories: [Category!]! @all
+    category(id: ID! @eq): Category @find
+}
+
+input CreateProductInput {
+    name: String!
+    description: String!
+    price: Float!
+    category_id: ID!
+}
+
+input UpdateProductInput {
+    id: ID!
+    name: String
+    description: String
+    price: Float
+    category_id: ID
+}
+
+input CreateCategoryInput {
+    name: String!
+}
+
+input UpdateCategoryInput {
+    id: ID!
+    name: String
+}
+
+type Mutation {
+    createProduct(input: CreateProductInput! @spread): Product @create
+    updateProduct(input: UpdateProductInput! @spread): Product @update
+    deleteProduct(id: ID!): Product @field(resolver: "DeleteProduct")
+
+    createCategory(input: CreateCategoryInput! @spread): Category @create
+    updateCategory(input: UpdateCategoryInput! @spread): Category @update
+}
